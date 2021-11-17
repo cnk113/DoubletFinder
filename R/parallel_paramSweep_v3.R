@@ -61,7 +61,7 @@ parallel_paramSweep_v3 <- function(n, n.real.cells, real.cells, pK, pN, data, or
     seu_wdoublets <- CreateSeuratObject(counts = data_wdoublets)
 
     print("Running SCTransform...")
-    seu_wdoublets <- SCTransform(seu_wdoublets)
+    seu_wdoublets <- SCTransform(seu_wdoublets, vst.flavor='v2', n_genes=NULL, ncells=NULL)
 
     print("Running PCA...")
     seu_wdoublets <- RunPCA(seu_wdoublets, npcs = length(PCs))
